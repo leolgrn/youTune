@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="mainViewController" customModule="youTune" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="ZVb-vs-aqP" id="8IQ-Vj-B0e"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZVb-vs-aqP">
+                    <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="ZVb-vs-aqP" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="SqZ-pw-6Ff"/>
+                <constraint firstItem="ZVb-vs-aqP" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="Uc4-Ya-Qqu"/>
+                <constraint firstItem="ZVb-vs-aqP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ZwT-oO-k7s"/>
+                <constraint firstItem="ZVb-vs-aqP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="blh-JT-5MD"/>
+                <constraint firstItem="ZVb-vs-aqP" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="fXF-1g-e0L"/>
+                <constraint firstItem="ZVb-vs-aqP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="fZm-f7-lfY"/>
+                <constraint firstItem="ZVb-vs-aqP" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="k5r-Wq-uA3"/>
+                <constraint firstItem="ZVb-vs-aqP" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="lGH-Ne-n5E"/>
+                <constraint firstItem="ZVb-vs-aqP" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="oa4-60-Pdq"/>
+                <constraint firstItem="ZVb-vs-aqP" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="qIY-rG-7qe"/>
+                <constraint firstItem="ZVb-vs-aqP" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="xSA-KA-46A"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="35.5" y="69"/>
+        </view>
+    </objects>
+</document>
