@@ -14,7 +14,11 @@
 		B32861EC2009571A00611994 /* mainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B32861EA2009571A00611994 /* mainViewController.xib */; };
 		B32861EF2009625200611994 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32861ED2009625200611994 /* ListTableViewCell.swift */; };
 		B32861F02009625200611994 /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B32861EE2009625200611994 /* ListTableViewCell.xib */; };
+		B35030D320178E5400B8E25F /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35030D120178E5400B8E25F /* VideoViewController.swift */; };
+		B35030D420178E5400B8E25F /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B35030D220178E5400B8E25F /* VideoViewController.xib */; };
 		B3C96FDD200A719F00B189AD /* ListInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C96FDC200A719F00B189AD /* ListInfo.swift */; };
+		B3CD69322019F1D900E65148 /* searchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CD69302019F1D900E65148 /* searchViewController.swift */; };
+		B3CD69332019F1D900E65148 /* searchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3CD69312019F1D900E65148 /* searchViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +31,11 @@
 		B32861EA2009571A00611994 /* mainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = mainViewController.xib; sourceTree = "<group>"; };
 		B32861ED2009625200611994 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		B32861EE2009625200611994 /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
+		B35030D120178E5400B8E25F /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		B35030D220178E5400B8E25F /* VideoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoViewController.xib; sourceTree = "<group>"; };
 		B3C96FDC200A719F00B189AD /* ListInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInfo.swift; sourceTree = "<group>"; };
+		B3CD69302019F1D900E65148 /* searchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchViewController.swift; sourceTree = "<group>"; };
+		B3CD69312019F1D900E65148 /* searchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = searchViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +77,10 @@
 				B32861ED2009625200611994 /* ListTableViewCell.swift */,
 				B32861EE2009625200611994 /* ListTableViewCell.xib */,
 				B3C96FDC200A719F00B189AD /* ListInfo.swift */,
+				B35030D120178E5400B8E25F /* VideoViewController.swift */,
+				B35030D220178E5400B8E25F /* VideoViewController.xib */,
+				B3CD69302019F1D900E65148 /* searchViewController.swift */,
+				B3CD69312019F1D900E65148 /* searchViewController.xib */,
 			);
 			path = youTune;
 			sourceTree = "<group>";
@@ -135,6 +147,8 @@
 				B32861E2200956C700611994 /* LaunchScreen.storyboard in Resources */,
 				B32861F02009625200611994 /* ListTableViewCell.xib in Resources */,
 				B32861DF200956C700611994 /* Assets.xcassets in Resources */,
+				B35030D420178E5400B8E25F /* VideoViewController.xib in Resources */,
+				B3CD69332019F1D900E65148 /* searchViewController.xib in Resources */,
 				B32861EC2009571A00611994 /* mainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,7 +162,9 @@
 			files = (
 				B32861D8200956C700611994 /* AppDelegate.swift in Sources */,
 				B3C96FDD200A719F00B189AD /* ListInfo.swift in Sources */,
+				B3CD69322019F1D900E65148 /* searchViewController.swift in Sources */,
 				B32861EB2009571A00611994 /* mainViewController.swift in Sources */,
+				B35030D320178E5400B8E25F /* VideoViewController.swift in Sources */,
 				B32861EF2009625200611994 /* ListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
