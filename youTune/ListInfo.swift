@@ -8,69 +8,76 @@
 
 import UIKit
 
-class ListInfo: NSObject {
+class ListInfo: UITableViewController {
 
     var imageList: [UIImage] = []
     var titles: [String] = []
     var descriptions: [String] = []
+    var id: [String] = []
+    var arraysAreFull = false
     
     public func getInformation(keyword: String) {
         
+        // Formating the keyword for request
+        
+        let keywordFormatted = String(keyword.map({$0 == " " ? "+" : $0}))
+        
         // Call the youTube API
         
-        let keywordFormat: String = KeywordFormating(keyword: keyword)
-        let ytURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyATUkqiZ6WQVbJdu1vqj-oM3aP7MgedOeU&maxResults=25&type=video&videoCategoryId=10&q=" + keywordFormat
+        let ytURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyATUkqiZ6WQVbJdu1vqj-oM3aP7MgedOeU&maxResults=25&type=video&videoCategoryId=10&q=" + keywordFormatted
         let url = URL(string: ytURL)
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
             guard let responseData = data else {
                 return
             }
             guard let json = try? JSONSerialization.jsonObject(with: responseData, options: .allowFragments),
-                let dict = json as? [String:Any]
-                else{
-                    return
+            let dict = json as? [String:Any] else{
+                return
             }
+            
+            // Clean Arrays
+            
+            self.imageList.removeAll()
+            self.titles.removeAll()
+            self.descriptions.removeAll()
+            self.id.removeAll()
+            
+            self.arraysAreFull = false
             
             // Tiny parsing
             
             let dictItems = dict["items"] as? [[String: Any]]
+            
             dictItems?.forEach({ (item) in
+                
                 let itemSnippets = item["snippet"] as? [String: Any]
+                let itemId = item["id"] as? [String: Any]
+                
                 let thumbnails = itemSnippets!["thumbnails"] as? [String: Any]
                 let defaultThumbnail = thumbnails!["default"] as? [String: Any]
-                guard let title = itemSnippets!["title"], let description = itemSnippets!["description"], let defaultImageUrl = defaultThumbnail!["url"] else{
+                
+                guard let title = itemSnippets!["title"], let description = itemSnippets!["description"],
+                let defaultImageUrl = defaultThumbnail!["url"], let videoId = itemId!["videoId"] else{
                     return
                 }
                 
-                // Fill variables of listInfo with API datas
+                // Fill arrays of listInfo with API datas
                 
                 self.titles.append(String(describing: title))
                 self.descriptions.append(String(describing: description))
+                self.id.append(String(describing: videoId))
                 let url = URL(string: String(describing: defaultImageUrl))
                 let data = try? Data(contentsOf: url!)
-                
                 if let imageData = data {
-                    let image = UIImage(data: imageData)
-                    self.imageList.append(image!)
+                    if let image = UIImage(data: imageData){
+                        self.imageList.append(image)
+                    }
                 }
             })
+            
+            self.arraysAreFull = true
         }
         task.resume()
-    }
-    
-    // Formating the keyword for request
-    
-    public func KeywordFormating(keyword: String) -> String {
-        var keywordFormat: String = ""
-        keyword.forEach({char in
-            guard char != " "
-                else {
-                    keywordFormat += "+"
-                    return
-            }
-            keywordFormat += "\(char)"
-        })
-        return keywordFormat
     }
     
 }

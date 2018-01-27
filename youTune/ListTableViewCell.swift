@@ -11,7 +11,7 @@ import UIKit
 class ListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imageList: UIImageView!
-    @IBOutlet weak var titleList: UILabel!
-    @IBOutlet weak var descriptionList: UILabel!
+    @IBOutlet weak var titleList: UITextView!
+    @IBOutlet weak var descriptionList: UITextView!
     
 }
