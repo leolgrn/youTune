@@ -15,7 +15,7 @@ class searchViewController: UIViewController {
     
     
     
-    let request = ListInfo()
+    var request = ListInfo()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +35,7 @@ class searchViewController: UIViewController {
     }
     
     @IBAction func searchButton() {
+        request = ListInfo();
         self.request.getInformation(keyword: self.textField.text!)
         while self.request.arraysAreFull == false {}
         self.tableView.reloadData()
