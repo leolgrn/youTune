@@ -12,6 +12,7 @@ import WebKit
 class VideoViewController: UIViewController {
 
     @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var videoDescription: UILabel!
     var videoId: String = ""
     
     override func viewDidLoad() {
