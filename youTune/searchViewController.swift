@@ -1,5 +1,5 @@
 //
-//  searchViewController.swift
+//  SearchViewController.swift
 //  youTune
 //
 //  Created by Léo LEGRON on 25/01/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class searchViewController: UIViewController {
+class SearchViewController: UIViewController {
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -43,7 +43,7 @@ class searchViewController: UIViewController {
     
 }
 
-extension searchViewController: UITableViewDataSource{
+extension SearchViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.request.titles.count
     }
@@ -63,7 +63,7 @@ extension searchViewController: UITableViewDataSource{
     }
 }
 
-extension searchViewController: UITableViewDelegate{
+extension SearchViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let videoId = self.request.id[indexPath.row]
         let videoViewController = VideoViewController()
@@ -72,6 +72,6 @@ extension searchViewController: UITableViewDelegate{
     }
 }
 
-extension searchViewController: UITextFieldDelegate{
+extension SearchViewController: UITextFieldDelegate{
     
 }

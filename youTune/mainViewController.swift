@@ -1,5 +1,5 @@
 //
-//  mainViewController.swift
+//  MainViewController.swift
 //  youTune
 //
 //  Created by Léo LEGRON on 12/01/2018.
@@ -11,7 +11,7 @@ import UIKit
 
 //class main
 
-class mainViewController: UIViewController{
+class MainViewController: UIViewController{
     
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -40,14 +40,14 @@ class mainViewController: UIViewController{
     }
     
     @IBAction func searchController() {
-        self.navigationController?.pushViewController(searchViewController(), animated: true)
+        self.navigationController?.pushViewController(SearchViewController(), animated: true)
     }
     
 }
 
 //extensions
 
-extension mainViewController: UITableViewDataSource{
+extension MainViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.request.titles.count
     }
@@ -68,7 +68,7 @@ extension mainViewController: UITableViewDataSource{
     
 }
 
-extension mainViewController: UITableViewDelegate{
+extension MainViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let videoId = self.request.id[indexPath.row]
         let videoViewController = VideoViewController()

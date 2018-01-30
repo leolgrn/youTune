@@ -10,32 +10,32 @@
 		B32861D8200956C700611994 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32861D7200956C700611994 /* AppDelegate.swift */; };
 		B32861DF200956C700611994 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B32861DE200956C700611994 /* Assets.xcassets */; };
 		B32861E2200956C700611994 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B32861E0200956C700611994 /* LaunchScreen.storyboard */; };
-		B32861EB2009571A00611994 /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32861E92009571A00611994 /* mainViewController.swift */; };
-		B32861EC2009571A00611994 /* mainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B32861EA2009571A00611994 /* mainViewController.xib */; };
+		B32861EB2009571A00611994 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32861E92009571A00611994 /* MainViewController.swift */; };
+		B32861EC2009571A00611994 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B32861EA2009571A00611994 /* MainViewController.xib */; };
 		B32861EF2009625200611994 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32861ED2009625200611994 /* ListTableViewCell.swift */; };
 		B32861F02009625200611994 /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B32861EE2009625200611994 /* ListTableViewCell.xib */; };
 		B35030D320178E5400B8E25F /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35030D120178E5400B8E25F /* VideoViewController.swift */; };
 		B35030D420178E5400B8E25F /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B35030D220178E5400B8E25F /* VideoViewController.xib */; };
 		B3C96FDD200A719F00B189AD /* ListInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C96FDC200A719F00B189AD /* ListInfo.swift */; };
-		B3CD69322019F1D900E65148 /* searchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CD69302019F1D900E65148 /* searchViewController.swift */; };
-		B3CD69332019F1D900E65148 /* searchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3CD69312019F1D900E65148 /* searchViewController.xib */; };
+		B3CD69322019F1D900E65148 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CD69302019F1D900E65148 /* SearchViewController.swift */; };
+		B3CD69332019F1D900E65148 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3CD69312019F1D900E65148 /* SearchViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B32861D4200956C700611994 /* youTune.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = youTune.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B32861D4200956C700611994 /* YouTune.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouTune.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B32861D7200956C700611994 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B32861DE200956C700611994 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B32861E1200956C700611994 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B32861E3200956C700611994 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B32861E92009571A00611994 /* mainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
-		B32861EA2009571A00611994 /* mainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = mainViewController.xib; sourceTree = "<group>"; };
+		B32861E92009571A00611994 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		B32861EA2009571A00611994 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		B32861ED2009625200611994 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		B32861EE2009625200611994 /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
 		B35030D120178E5400B8E25F /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		B35030D220178E5400B8E25F /* VideoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoViewController.xib; sourceTree = "<group>"; };
 		B3C96FDC200A719F00B189AD /* ListInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInfo.swift; sourceTree = "<group>"; };
-		B3CD69302019F1D900E65148 /* searchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchViewController.swift; sourceTree = "<group>"; };
-		B3CD69312019F1D900E65148 /* searchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = searchViewController.xib; sourceTree = "<group>"; };
+		B3CD69302019F1D900E65148 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		B3CD69312019F1D900E65148 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +52,7 @@
 		B32861CB200956C700611994 = {
 			isa = PBXGroup;
 			children = (
-				B32861D6200956C700611994 /* youTune */,
+				B32861D6200956C700611994 /* YouTune */,
 				B32861D5200956C700611994 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,37 +60,37 @@
 		B32861D5200956C700611994 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B32861D4200956C700611994 /* youTune.app */,
+				B32861D4200956C700611994 /* YouTune.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B32861D6200956C700611994 /* youTune */ = {
+		B32861D6200956C700611994 /* YouTune */ = {
 			isa = PBXGroup;
 			children = (
 				B32861D7200956C700611994 /* AppDelegate.swift */,
 				B32861DE200956C700611994 /* Assets.xcassets */,
 				B32861E0200956C700611994 /* LaunchScreen.storyboard */,
 				B32861E3200956C700611994 /* Info.plist */,
-				B32861E92009571A00611994 /* mainViewController.swift */,
-				B32861EA2009571A00611994 /* mainViewController.xib */,
+				B32861E92009571A00611994 /* MainViewController.swift */,
+				B32861EA2009571A00611994 /* MainViewController.xib */,
 				B32861ED2009625200611994 /* ListTableViewCell.swift */,
 				B32861EE2009625200611994 /* ListTableViewCell.xib */,
 				B3C96FDC200A719F00B189AD /* ListInfo.swift */,
 				B35030D120178E5400B8E25F /* VideoViewController.swift */,
 				B35030D220178E5400B8E25F /* VideoViewController.xib */,
-				B3CD69302019F1D900E65148 /* searchViewController.swift */,
-				B3CD69312019F1D900E65148 /* searchViewController.xib */,
+				B3CD69302019F1D900E65148 /* SearchViewController.swift */,
+				B3CD69312019F1D900E65148 /* SearchViewController.xib */,
 			);
-			path = youTune;
+			path = YouTune;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B32861D3200956C700611994 /* youTune */ = {
+		B32861D3200956C700611994 /* YouTune */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B32861E6200956C700611994 /* Build configuration list for PBXNativeTarget "youTune" */;
+			buildConfigurationList = B32861E6200956C700611994 /* Build configuration list for PBXNativeTarget "YouTune" */;
 			buildPhases = (
 				B32861D0200956C700611994 /* Sources */,
 				B32861D1200956C700611994 /* Frameworks */,
@@ -100,9 +100,9 @@
 			);
 			dependencies = (
 			);
-			name = youTune;
-			productName = youTune;
-			productReference = B32861D4200956C700611994 /* youTune.app */;
+			name = YouTune;
+			productName = YouTune;
+			productReference = B32861D4200956C700611994 /* YouTune.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -121,7 +121,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B32861CF200956C700611994 /* Build configuration list for PBXProject "youTune" */;
+			buildConfigurationList = B32861CF200956C700611994 /* Build configuration list for PBXProject "YouTune" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -134,7 +134,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B32861D3200956C700611994 /* youTune */,
+				B32861D3200956C700611994 /* YouTune */,
 			);
 		};
 /* End PBXProject section */
@@ -148,8 +148,8 @@
 				B32861F02009625200611994 /* ListTableViewCell.xib in Resources */,
 				B32861DF200956C700611994 /* Assets.xcassets in Resources */,
 				B35030D420178E5400B8E25F /* VideoViewController.xib in Resources */,
-				B3CD69332019F1D900E65148 /* searchViewController.xib in Resources */,
-				B32861EC2009571A00611994 /* mainViewController.xib in Resources */,
+				B3CD69332019F1D900E65148 /* SearchViewController.xib in Resources */,
+				B32861EC2009571A00611994 /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,8 +162,8 @@
 			files = (
 				B32861D8200956C700611994 /* AppDelegate.swift in Sources */,
 				B3C96FDD200A719F00B189AD /* ListInfo.swift in Sources */,
-				B3CD69322019F1D900E65148 /* searchViewController.swift in Sources */,
-				B32861EB2009571A00611994 /* mainViewController.swift in Sources */,
+				B3CD69322019F1D900E65148 /* SearchViewController.swift in Sources */,
+				B32861EB2009571A00611994 /* MainViewController.swift in Sources */,
 				B35030D320178E5400B8E25F /* VideoViewController.swift in Sources */,
 				B32861EF2009625200611994 /* ListTableViewCell.swift in Sources */,
 			);
@@ -295,9 +295,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = youTune/Info.plist;
+				INFOPLIST_FILE = YouTune/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = leo.youTune;
+				PRODUCT_BUNDLE_IDENTIFIER = leo.YouTune;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -309,9 +309,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = youTune/Info.plist;
+				INFOPLIST_FILE = YouTune/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = leo.youTune;
+				PRODUCT_BUNDLE_IDENTIFIER = leo.YouTune;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -321,7 +321,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B32861CF200956C700611994 /* Build configuration list for PBXProject "youTune" */ = {
+		B32861CF200956C700611994 /* Build configuration list for PBXProject "YouTune" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B32861E4200956C700611994 /* Debug */,
@@ -330,7 +330,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B32861E6200956C700611994 /* Build configuration list for PBXNativeTarget "youTune" */ = {
+		B32861E6200956C700611994 /* Build configuration list for PBXNativeTarget "YouTune" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B32861E7200956C700611994 /* Debug */,
