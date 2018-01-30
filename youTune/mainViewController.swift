@@ -55,16 +55,15 @@ extension mainViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath)
         if let listCell = cell as? ListTableViewCell {
-            print(self.request.imageList.count)
             listCell.titleList.text = self.request.titles[indexPath.row]
-            listCell.descriptionList.text = self.request.descriptions[indexPath.row]
+            listCell.channelTitleList.text = self.request.channelTitles[indexPath.row]
             listCell.imageList.image = self.request.imageList[indexPath.row]
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 150
     }
     
 }

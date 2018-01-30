@@ -13,6 +13,7 @@ class ListInfo: UITableViewController {
     var imageList: [UIImage] = []
     var titles: [String] = []
     var descriptions: [String] = []
+    var channelTitles: [String] = []
     var id: [String] = []
     var arraysAreFull = false
     
@@ -35,15 +36,6 @@ class ListInfo: UITableViewController {
                 return
             }
             
-            // Clean Arrays
-            
-            self.imageList.removeAll()
-            self.titles.removeAll()
-            self.descriptions.removeAll()
-            self.id.removeAll()
-            
-            self.arraysAreFull = false
-            
             // Tiny parsing
             
             let dictItems = dict["items"] as? [[String: Any]]
@@ -54,10 +46,11 @@ class ListInfo: UITableViewController {
                 let itemId = item["id"] as? [String: Any]
                 
                 let thumbnails = itemSnippets!["thumbnails"] as? [String: Any]
-                let defaultThumbnail = thumbnails!["default"] as? [String: Any]
+                let defaultThumbnail = thumbnails!["high"] as? [String: Any]
                 
                 guard let title = itemSnippets!["title"], let description = itemSnippets!["description"],
-                let defaultImageUrl = defaultThumbnail!["url"], let videoId = itemId!["videoId"] else{
+                let channelTitle = itemSnippets!["channelTitle"], let defaultImageUrl = defaultThumbnail!["url"],
+                let videoId = itemId!["videoId"] else{
                     return
                 }
                 
@@ -65,6 +58,7 @@ class ListInfo: UITableViewController {
                 
                 self.titles.append(String(describing: title))
                 self.descriptions.append(String(describing: description))
+                self.channelTitles.append(String(describing: channelTitle))
                 self.id.append(String(describing: videoId))
                 let url = URL(string: String(describing: defaultImageUrl))
                 let data = try? Data(contentsOf: url!)
@@ -74,7 +68,6 @@ class ListInfo: UITableViewController {
                     }
                 }
             })
-            
             self.arraysAreFull = true
         }
         task.resume()
