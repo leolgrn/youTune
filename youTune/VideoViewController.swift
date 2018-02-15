@@ -13,11 +13,13 @@ class VideoViewController: UIViewController {
 
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var videoDescription: UILabel!
+    var descriptionVideo: String = ""
     var videoId: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getVideo(videoId: videoId)
+        self.videoDescription.text = descriptionVideo
     }
 
     override func didReceiveMemoryWarning() {

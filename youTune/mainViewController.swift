@@ -71,8 +71,10 @@ extension mainViewController: UITableViewDataSource{
 extension mainViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let videoId = self.request.id[indexPath.row]
+        let descriptionVideo = self.request.descriptions[indexPath.row]
         let videoViewController = VideoViewController()
         videoViewController.videoId = videoId
+        videoViewController.descriptionVideo = descriptionVideo
         self.navigationController?.pushViewController(videoViewController, animated: true)
     }
 }
