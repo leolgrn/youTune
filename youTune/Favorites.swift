@@ -6,14 +6,20 @@
 //  Copyright © 2018 Léo LEGRON. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public class Favorites {
     
+    var basePath: URL
+    
+    init() {
+        self.basePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    }
+    
     public func loadFavorites() -> [[String:Any]]{
         
-        let basePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let filePath = basePath.appendingPathComponent("favorites.json")
+        
+        let filePath = self.basePath.appendingPathComponent("favorites.json")
         
         guard let data = try? Data(contentsOf: filePath),
             let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments),
@@ -25,8 +31,8 @@ public class Favorites {
     }
     
     public func saveFavorites(videoArr: [[String:Any]]) {
-        let basePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let filePath = basePath.appendingPathComponent("favorites.json")
+        
+        let filePath = self.basePath.appendingPathComponent("favorites.json")
         
         guard let data = try? JSONSerialization.data(withJSONObject: videoArr, options: .init(rawValue: 0)) else {
             return
@@ -38,4 +44,31 @@ public class Favorites {
         }
     }
     
+    public func saveImage(image: UIImage, idVideo: String) {
+        
+        let filePath = self.basePath.appendingPathComponent(idVideo + ".png")
+        if let data = UIImagePNGRepresentation(image) {
+            try? data.write(to: filePath)
+        }
+    }
+    
+    public func loadImage(idVideo: String) -> UIImage {
+        
+        let filePath = self.basePath.appendingPathComponent(idVideo + ".png")
+        if (FileManager.default.fileExists(atPath: filePath.path)) {
+            //return FileManager.default.value(forKeyPath: filePath.path) as! UIImage
+            return UIImage(contentsOfFile: filePath.path)!
+        }
+        return UIImage(named: "starFilled")!
+    }
+    
+    public func deleteImage(idVideo: String) {
+        
+        let filePath = self.basePath.appendingPathComponent(idVideo + ".png")
+        do {
+            try FileManager.default.removeItem(at: filePath)
+        } catch {
+        
+        }
+    }
 }
