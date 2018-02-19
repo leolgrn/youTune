@@ -18,7 +18,6 @@ class FavoritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.videos = self.favorites.loadFavorites()
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: "listCell")
@@ -27,6 +26,11 @@ class FavoritesViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.videos = self.favorites.loadFavorites()
+        self.tableView.reloadData()
     }
 
 }
@@ -41,8 +45,7 @@ extension FavoritesViewController: UITableViewDataSource{
         if let listCell = cell as? ListTableViewCell {
             listCell.titleList.text = self.videos[indexPath.row]["title"] as? String
             listCell.channelTitleList.text = self.videos[indexPath.row]["channel"] as? String
-            //listCell.imageList.image = self.request.imageList[indexPath.row]
-            listCell.imageList.image = UIImage(named: "emptyStar")
+            listCell.imageList.image = self.favorites.loadImage(idVideo: (self.videos[indexPath.row]["id"] as? String)!)
         }
         return cell
     }
@@ -54,17 +57,15 @@ extension FavoritesViewController: UITableViewDataSource{
 
 extension FavoritesViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-        print("count : \(self.videos.count)")
         let videoId = self.videos[indexPath.row]["id"]! as? String
         let descriptionVideo = self.videos[indexPath.row]["description"]! as? String
-        let videoImageURL = self.videos[indexPath.row]["image"]! as? String
+        //let videoImageURL = self.ima
         let videoName = self.videos[indexPath.row]["title"]! as? String
         let videoChannel = self.videos[indexPath.row]["channel"]! as? String
         let videoViewController = VideoViewController()
         videoViewController.videoId = videoId!
         videoViewController.descriptionVideo = descriptionVideo!
-        videoViewController.videoImageURL = videoImageURL!
+        //videoViewController.videoImageURL = videoImageURL!
         videoViewController.videoName = videoName!
         videoViewController.videoChannel = videoChannel!
         self.navigationController?.pushViewController(videoViewController, animated: true)

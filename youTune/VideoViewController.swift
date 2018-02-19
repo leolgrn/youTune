@@ -17,7 +17,7 @@ class VideoViewController: UIViewController {
     var favorites = Favorites()
     var descriptionVideo: String = ""
     var videoId: String = ""
-    var videoImageURL: String = ""
+    var videoImage: UIImage!
     var videoName: String = ""
     var videoChannel: String = ""
     var isFavorite: Bool = false
@@ -73,17 +73,17 @@ class VideoViewController: UIViewController {
             "id": self.videoId.description,
             "title": self.videoName,
             "channel": self.videoChannel,
-            "description": self.descriptionVideo,
-            "image": self.videoImageURL
+            "description": self.descriptionVideo
             ] as [String : Any]
         
         videoArr.append(json)
         self.favorites.saveFavorites(videoArr: videoArr)
+        self.favorites.saveImage(image: self.videoImage, idVideo: self.videoId)
     }
 
     
     func deleteFavorite() {
-        var videoArr: [[String:Any]] = self.favorites.loadFavorites()
+        let videoArr: [[String:Any]] = self.favorites.loadFavorites()
         var newArr: [[String:Any]] = []
         videoArr.forEach { (item) in
             if(item["id"]! as? String != self.videoId)
@@ -93,6 +93,7 @@ class VideoViewController: UIViewController {
         }
         
         self.favorites.saveFavorites(videoArr: newArr)
+        self.favorites.deleteImage(idVideo: self.videoId)
     }
     
 
