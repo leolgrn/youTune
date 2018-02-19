@@ -12,11 +12,20 @@ class searchViewController: UIViewController {
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchButton: UIButton!
     
     var request = ListInfo()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor.defaultColor
+        self.textField.backgroundColor = UIColor.thirdColor
+        self.textField.textColor = UIColor.white
+        self.textField.attributedPlaceholder = NSAttributedString(string:"Search for an artist, a song, an album...", attributes: [NSAttributedStringKey.foregroundColor: UIColor.fourthColor])
+        self.searchButton.setTitleColor(UIColor.white, for: [])
+        self.searchButton.setTitleColor(UIColor.secondColor, for: UIControlState.highlighted)
+        self.tableView.backgroundColor = UIColor.fourthColor
         
         self.tableView.isHidden = true
         self.tableView.delegate = self
@@ -24,7 +33,6 @@ class searchViewController: UIViewController {
         self.tableView.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: "listCell")
         
         self.textField.delegate = self
-        self.textField.placeholder = "Search for an artist, a song, an album..."
         
         self.title = "Search 🔎"
     }
@@ -33,7 +41,7 @@ class searchViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func searchButton() {
+    @IBAction func searchButtonAction(_ sender: Any) {
         search()
     }
 
@@ -81,6 +89,13 @@ extension searchViewController: UITableViewDelegate{
         videoViewController.videoName = videoName
         videoViewController.videoChannel = videoChannel
         self.navigationController?.pushViewController(videoViewController, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.contentView.backgroundColor = UIColor.defaultColor
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.thirdColor
+        cell.selectedBackgroundView = bgColorView
     }
 }
 

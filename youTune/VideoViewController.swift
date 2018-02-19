@@ -24,6 +24,10 @@ class VideoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor.defaultColor
+        self.videoDescription.textColor = UIColor.secondColor
+        
         getVideo(videoId: videoId)
         self.videoDescription.text = descriptionVideo
         self.webView.navigationDelegate = self

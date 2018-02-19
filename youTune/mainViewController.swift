@@ -20,13 +20,18 @@ class mainViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.view.backgroundColor = UIColor.defaultColor
+        self.tableView.backgroundColor = UIColor.fourthColor
+        self.tableView.separatorColor = UIColor.secondColor
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: "listCell")
         
         // Navigation Bar
         
-        self.title = "Trends 🎵"
+        self.title = "Trends 🔥"
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Favs ❤️", style: .plain, target: self, action: #selector(favoritesController))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Search 🔎", style: .plain, target: self, action: #selector(searchController))
         
@@ -93,6 +98,26 @@ extension mainViewController: UITableViewDelegate{
                 videoViewController.videoChannel = videoChannel
         self.navigationController?.pushViewController(videoViewController, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.contentView.backgroundColor = UIColor.defaultColor
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.thirdColor
+        cell.selectedBackgroundView = bgColorView
+    }
 }
 
-
+extension UIColor {
+    static let defaultColor = UIColor.grayScale(val: 50)
+    static let secondColor = UIColor.grayScale(val: 200)
+    static let thirdColor = UIColor.grayScale(val: 75)
+    static let fourthColor = UIColor.grayScale(val: 25)
+    
+    static func rgb(val: Double) -> CGFloat {
+        return CGFloat(val/255.0)
+    }
+    
+    static func grayScale(val: Double) -> UIColor {
+        return UIColor(red: UIColor.rgb(val: val), green: UIColor.rgb(val: val), blue: UIColor.rgb(val: val), alpha: 1)
+    }
+}

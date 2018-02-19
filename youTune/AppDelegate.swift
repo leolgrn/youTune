@@ -19,6 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         let navigationController = UINavigationController(rootViewController: mainViewController())
         navigationController.navigationBar.isTranslucent = false
+        // UI
+        navigationController.navigationBar.barTintColor = UIColor.thirdColor
+        navigationController.navigationBar.tintColor = UIColor.white
+        let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
+        navigationController.navigationBar.titleTextAttributes = textAttributes
+        
+        window.backgroundColor = UIColor.black
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         self.window = window
@@ -46,7 +53,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
 
 }
 
