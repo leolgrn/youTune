@@ -14,6 +14,7 @@ class VideoViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var videoDescription: UILabel!
     @IBOutlet weak var starButton: UIButton!
+    @IBOutlet weak var starTextButton: UIButton!
     var favorites = Favorites()
     var descriptionVideo: String = ""
     var videoId: String = ""
@@ -24,10 +25,11 @@ class VideoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.view.backgroundColor = UIColor.defaultColor
         self.videoDescription.textColor = UIColor.secondColor
-        
+        self.starTextButton.setTitleColor(UIColor.secondColor, for: [])
+
         getVideo(videoId: videoId)
         self.videoDescription.text = descriptionVideo
         self.webView.navigationDelegate = self

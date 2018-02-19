@@ -26,8 +26,8 @@
                     <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No favorites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zgc-Ca-Isg">
-                    <rect key="frame" x="141.5" y="323" width="92" height="21"/>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No favorites" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zgc-Ca-Isg">
+                    <rect key="frame" x="141.5" y="170" width="92" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -37,7 +37,7 @@
             <constraints>
                 <constraint firstItem="T8g-QN-nhY" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="6U8-hX-CQC"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="T8g-QN-nhY" secondAttribute="trailing" id="LNx-79-2ti"/>
-                <constraint firstItem="Zgc-Ca-Isg" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="U2P-1D-DCO"/>
+                <constraint firstItem="Zgc-Ca-Isg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="150" id="cQc-XQ-VuA"/>
                 <constraint firstItem="T8g-QN-nhY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iIu-qS-Ek1"/>
                 <constraint firstItem="Zgc-Ca-Isg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kci-6u-aZw"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="T8g-QN-nhY" secondAttribute="bottom" id="rZT-lV-9oG"/>
