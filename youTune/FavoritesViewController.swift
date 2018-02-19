@@ -13,11 +13,12 @@ class FavoritesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noFavLabel: UILabel!
     var videos: [[String:Any]] = []
+    var favorites = Favorites()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.videos = loadFavorites()
+        self.videos = self.favorites.loadFavorites()
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: "listCell")
@@ -27,25 +28,6 @@ class FavoritesViewController: UIViewController {
         super.didReceiveMemoryWarning()
 
     }
-
-    func loadFavorites() -> [[String:Any]] {
-        
-        let basePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let filePath = basePath.appendingPathComponent("favorites.json")
-        
-        // print(filePath)
-        guard let data = try? Data(contentsOf: filePath),
-            let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments),
-            let arr = json as? [[String:Any]]
-            else {
-                self.noFavLabel.isHidden = false
-                return []
-        }
-        
-        return arr
-        
-    }
-    
 
 }
 

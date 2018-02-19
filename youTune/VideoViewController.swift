@@ -14,6 +14,7 @@ class VideoViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var videoDescription: UILabel!
     @IBOutlet weak var starButton: UIButton!
+    var favorites = Favorites()
     var descriptionVideo: String = ""
     var videoId: String = ""
     var videoImageURL: String = ""
@@ -26,12 +27,7 @@ class VideoViewController: UIViewController {
         getVideo(videoId: videoId)
         self.videoDescription.text = descriptionVideo
         self.webView.navigationDelegate = self
-        print("test")
-        print(self.videoName)
-        print(self.videoChannel)
-        print(self.videoId)
-        print(self.videoDescription)
-        print(self.videoImageURL)
+        self.isAFavorite()
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,6 +39,14 @@ class VideoViewController: UIViewController {
         webView.loadHTMLString(html, baseURL: URL(string: "https://www.youtube.com"))
         webView.isOpaque = false
         webView.backgroundColor = UIColor.black
+    }
+    
+    func isAFavorite() {
+        let videoArr: [[String:Any]] = self.favorites.loadFavorites()
+        if (videoArr.contains{ $0["id"]! as! String == self.videoId}) {
+            self.starButton.setImage(UIImage(named: "starFilled"), for: .normal)
+            self.isFavorite = true
+        }
     }
     
     @IBAction func favButtonPressed(_ sender: Any) {
@@ -60,10 +64,10 @@ class VideoViewController: UIViewController {
         
     }
     
+
     func addFavorite() {
 
-        
-        var videoArr: [[String: Any]] = loadFavorites()
+        var videoArr: [[String: Any]] = self.favorites.loadFavorites()
         
         let json = [
             "id": self.videoId.description,
@@ -74,14 +78,12 @@ class VideoViewController: UIViewController {
             ] as [String : Any]
         
         videoArr.append(json)
-        
-        saveFavorites(videoArr: videoArr)
-        
+        self.favorites.saveFavorites(videoArr: videoArr)
     }
 
     
     func deleteFavorite() {
-        var videoArr: [[String:Any]] = loadFavorites()
+        var videoArr: [[String:Any]] = self.favorites.loadFavorites()
         var newArr: [[String:Any]] = []
         videoArr.forEach { (item) in
             if(item["id"]! as? String != self.videoId)
@@ -90,39 +92,12 @@ class VideoViewController: UIViewController {
             }
         }
         
-        saveFavorites(videoArr: newArr)
+        self.favorites.saveFavorites(videoArr: newArr)
     }
     
-    func loadFavorites() -> [[String:Any]]{
-        
-        let basePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let filePath = basePath.appendingPathComponent("favorites.json")
-        
-        guard let data = try? Data(contentsOf: filePath),
-            let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments),
-            let arr = json as? [[String:Any]]
-            else {
-                return []
-        }
-        return arr
-    }
+
     
-    func saveFavorites(videoArr: [[String:Any]]) {
-        let basePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let filePath = basePath.appendingPathComponent("favorites.json")
-        
-        guard let data = try? JSONSerialization.data(withJSONObject: videoArr, options: .init(rawValue: 0)) else {
-            print("Failed to Serialize")
-            return
-        }
-        
-        do {
-            try data.write(to: filePath)
-            print("write successed")
-        } catch {
-            print("erreur write")
-        }
-    }
+
     
 }
 

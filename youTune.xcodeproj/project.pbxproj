@@ -21,6 +21,7 @@
 		B3CD69332019F1D900E65148 /* searchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3CD69312019F1D900E65148 /* searchViewController.xib */; };
 		E8E15F80203B067A007D0317 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E15F7E203B067A007D0317 /* FavoritesViewController.swift */; };
 		E8E15F81203B067A007D0317 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8E15F7F203B067A007D0317 /* FavoritesViewController.xib */; };
+		E8E15F85203B36F6007D0317 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E15F84203B36F6007D0317 /* Favorites.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		B3CD69312019F1D900E65148 /* searchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = searchViewController.xib; sourceTree = "<group>"; };
 		E8E15F7E203B067A007D0317 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		E8E15F7F203B067A007D0317 /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
+		E8E15F84203B36F6007D0317 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				B3CD69312019F1D900E65148 /* searchViewController.xib */,
 				E8E15F7E203B067A007D0317 /* FavoritesViewController.swift */,
 				E8E15F7F203B067A007D0317 /* FavoritesViewController.xib */,
+				E8E15F84203B36F6007D0317 /* Favorites.swift */,
 			);
 			path = youTune;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 				E8E15F80203B067A007D0317 /* FavoritesViewController.swift in Sources */,
 				B3CD69322019F1D900E65148 /* searchViewController.swift in Sources */,
 				B32861EB2009571A00611994 /* mainViewController.swift in Sources */,
+				E8E15F85203B36F6007D0317 /* Favorites.swift in Sources */,
 				B35030D320178E5400B8E25F /* VideoViewController.swift in Sources */,
 				B32861EF2009625200611994 /* ListTableViewCell.swift in Sources */,
 			);
