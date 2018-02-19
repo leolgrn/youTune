@@ -19,6 +19,8 @@
 		B3C96FDD200A719F00B189AD /* ListInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C96FDC200A719F00B189AD /* ListInfo.swift */; };
 		B3CD69322019F1D900E65148 /* searchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CD69302019F1D900E65148 /* searchViewController.swift */; };
 		B3CD69332019F1D900E65148 /* searchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3CD69312019F1D900E65148 /* searchViewController.xib */; };
+		E8E15F80203B067A007D0317 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E15F7E203B067A007D0317 /* FavoritesViewController.swift */; };
+		E8E15F81203B067A007D0317 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8E15F7F203B067A007D0317 /* FavoritesViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		B3C96FDC200A719F00B189AD /* ListInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInfo.swift; sourceTree = "<group>"; };
 		B3CD69302019F1D900E65148 /* searchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchViewController.swift; sourceTree = "<group>"; };
 		B3CD69312019F1D900E65148 /* searchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = searchViewController.xib; sourceTree = "<group>"; };
+		E8E15F7E203B067A007D0317 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		E8E15F7F203B067A007D0317 /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,8 @@
 				B35030D220178E5400B8E25F /* VideoViewController.xib */,
 				B3CD69302019F1D900E65148 /* searchViewController.swift */,
 				B3CD69312019F1D900E65148 /* searchViewController.xib */,
+				E8E15F7E203B067A007D0317 /* FavoritesViewController.swift */,
+				E8E15F7F203B067A007D0317 /* FavoritesViewController.xib */,
 			);
 			path = youTune;
 			sourceTree = "<group>";
@@ -148,6 +154,7 @@
 				B32861F02009625200611994 /* ListTableViewCell.xib in Resources */,
 				B32861DF200956C700611994 /* Assets.xcassets in Resources */,
 				B35030D420178E5400B8E25F /* VideoViewController.xib in Resources */,
+				E8E15F81203B067A007D0317 /* FavoritesViewController.xib in Resources */,
 				B3CD69332019F1D900E65148 /* searchViewController.xib in Resources */,
 				B32861EC2009571A00611994 /* mainViewController.xib in Resources */,
 			);
@@ -162,6 +169,7 @@
 			files = (
 				B32861D8200956C700611994 /* AppDelegate.swift in Sources */,
 				B3C96FDD200A719F00B189AD /* ListInfo.swift in Sources */,
+				E8E15F80203B067A007D0317 /* FavoritesViewController.swift in Sources */,
 				B3CD69322019F1D900E65148 /* searchViewController.swift in Sources */,
 				B32861EB2009571A00611994 /* mainViewController.swift in Sources */,
 				B35030D320178E5400B8E25F /* VideoViewController.swift in Sources */,

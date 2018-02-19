@@ -28,6 +28,7 @@ class mainViewController: UIViewController{
         
         self.title = "Home"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Search", style: .plain, target: self, action: #selector(searchController))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Favorites", style: .plain, target: self, action: #selector(favoritesController))
         
         // Call + reloadData of tableView
         self.request.getInformation(keyword: "")
@@ -41,6 +42,10 @@ class mainViewController: UIViewController{
     
     @IBAction func searchController() {
         self.navigationController?.pushViewController(searchViewController(), animated: true)
+    }
+    
+    @IBAction func favoritesController() {
+        self.navigationController?.pushViewController(FavoritesViewController(), animated: true)
     }
     
 }
@@ -72,9 +77,15 @@ extension mainViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let videoId = self.request.id[indexPath.row]
         let descriptionVideo = self.request.descriptions[indexPath.row]
+        let videoImage = self.request.imageList[indexPath.row]
+        let videoName = self.request.titles[indexPath.row]
+        let videoChannel = self.request.channelTitles[indexPath.row]
         let videoViewController = VideoViewController()
         videoViewController.videoId = videoId
         videoViewController.descriptionVideo = descriptionVideo
+        videoViewController.videoImage = videoImage
+        videoViewController.videoName = videoName
+                videoViewController.videoChannel = videoChannel
         self.navigationController?.pushViewController(videoViewController, animated: true)
     }
 }
