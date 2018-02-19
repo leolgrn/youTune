@@ -28,7 +28,7 @@ class mainViewController: UIViewController{
         
         self.title = "Home"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Search", style: .plain, target: self, action: #selector(searchController))
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Favorites", style: .plain, target: self, action: #selector(favoritesController))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Favs ❤️", style: .plain, target: self, action: #selector(favoritesController))
         
         // Call + reloadData of tableView
         self.request.getInformation(keyword: "")
@@ -48,6 +48,11 @@ class mainViewController: UIViewController{
         self.navigationController?.pushViewController(FavoritesViewController(), animated: true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.tintAdjustmentMode = .normal
+        self.navigationController?.navigationBar.tintAdjustmentMode = .automatic
+    }
 }
 
 //extensions

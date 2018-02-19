@@ -59,7 +59,7 @@ public class Favorites {
             //return FileManager.default.value(forKeyPath: filePath.path) as! UIImage
             return UIImage(contentsOfFile: filePath.path)!
         }
-        return UIImage(named: "starFilled")!
+        return UIImage(named: "heart")!
     }
     
     public func deleteImage(idVideo: String) {

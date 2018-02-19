@@ -44,7 +44,7 @@ class VideoViewController: UIViewController {
     func isAFavorite() {
         let videoArr: [[String:Any]] = self.favorites.loadFavorites()
         if (videoArr.contains{ $0["id"]! as! String == self.videoId}) {
-            self.starButton.setImage(UIImage(named: "starFilled"), for: .normal)
+            self.starButton.setImage(UIImage(named: "heart"), for: .normal)
             self.isFavorite = true
         }
     }
@@ -53,12 +53,12 @@ class VideoViewController: UIViewController {
 
         if (isFavorite) {
             self.isFavorite = false
-            self.starButton.setImage(UIImage(named: "emptyStar"), for: .normal)
+            self.starButton.setImage(UIImage(named: "heart2"), for: .normal)
             self.deleteFavorite()
         }
         else {
             self.isFavorite = true
-            self.starButton.setImage(UIImage(named: "starFilled"), for: .normal)
+            self.starButton.setImage(UIImage(named: "heart"), for: .normal)
             self.addFavorite()
         }
         

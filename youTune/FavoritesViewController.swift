@@ -18,7 +18,7 @@ class FavoritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Favorites"
+        self.navigationItem.title = "Favs ❤️"
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: "listCell")
