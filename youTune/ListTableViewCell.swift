@@ -14,4 +14,9 @@ class ListTableViewCell: UITableViewCell {
     @IBOutlet weak var titleList: UILabel!
     @IBOutlet weak var channelTitleList: UILabel!
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.titleList.textColor = UIColor.white
+        self.channelTitleList.textColor = UIColor.secondColor
+    }
 }

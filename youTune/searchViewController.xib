@@ -13,6 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="searchViewController" customModule="youTune" customModuleProvider="target">
             <connections>
+                <outlet property="searchButton" destination="qrV-Hu-hVd" id="zdP-DU-zid"/>
                 <outlet property="tableView" destination="Y1B-uK-TG2" id="ZDo-Ky-GlZ"/>
                 <outlet property="textField" destination="E0f-J5-R1O" id="l0E-t7-IcX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -29,15 +30,16 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrV-Hu-hVd">
-                    <rect key="frame" x="10" y="104.66666666666667" width="355" height="30.000000000000014"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrV-Hu-hVd">
+                    <rect key="frame" x="10" y="104.66666666666667" width="355" height="32.000000000000014"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="Search"/>
                     <connections>
-                        <action selector="searchButton" destination="-1" eventType="touchUpInside" id="9pl-be-5YF"/>
+                        <action selector="searchButtonAction:" destination="-1" eventType="touchUpInside" id="AsR-RS-a1I"/>
                     </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Y1B-uK-TG2">
-                    <rect key="frame" x="0.0" y="144.66666666666669" width="375" height="633.33333333333326"/>
+                    <rect key="frame" x="0.0" y="146.66666666666669" width="375" height="631.33333333333326"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
