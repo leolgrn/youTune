@@ -13,13 +13,12 @@ class searchViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
-    
-    
     var request = ListInfo()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.isHidden = true
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: "listCell")
@@ -27,7 +26,7 @@ class searchViewController: UIViewController {
         self.textField.delegate = self
         self.textField.placeholder = "Search for an artist, a song, an album..."
         
-        self.title = "Search"
+        self.title = "Search 🔎"
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,12 +34,17 @@ class searchViewController: UIViewController {
     }
     
     @IBAction func searchButton() {
-        request = ListInfo();
+        search()
+    }
+
+    func search() {
+        request = ListInfo()
         self.request.getInformation(keyword: self.textField.text!)
         while self.request.arraysAreFull == false {}
         self.tableView.reloadData()
+        self.tableView.isHidden = false
+        self.textField.resignFirstResponder() // close keyboard
     }
-    
 }
 
 extension searchViewController: UITableViewDataSource{
@@ -81,5 +85,9 @@ extension searchViewController: UITableViewDelegate{
 }
 
 extension searchViewController: UITextFieldDelegate{
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        search()
+        return true
+    }
 }
