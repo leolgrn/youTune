@@ -26,9 +26,9 @@ class mainViewController: UIViewController{
         
         // Navigation Bar
         
-        self.title = "Home"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Search", style: .plain, target: self, action: #selector(searchController))
+        self.title = "Trends 🎵"
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Favs ❤️", style: .plain, target: self, action: #selector(favoritesController))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Search 🔎", style: .plain, target: self, action: #selector(searchController))
         
         // Call + reloadData of tableView
         self.request.getInformation(keyword: "")

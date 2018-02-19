@@ -104,7 +104,9 @@ class VideoViewController: UIViewController {
 
 extension VideoViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        let js = "document.getElementById('video').click();"
-        webView.evaluateJavaScript(js, completionHandler: nil)
+        let js1 = "document.getElementById('video').click();"
+        webView.evaluateJavaScript(js1, completionHandler: nil)
+        let js2 = "document.getElementsByTagName('video')[0].setAttribute('playsinline', '');"
+        webView.evaluateJavaScript(js2, completionHandler: nil)
     }
 }
