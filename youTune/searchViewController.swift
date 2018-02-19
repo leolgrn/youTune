@@ -67,13 +67,13 @@ extension searchViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let videoId = self.request.id[indexPath.row]
         let descriptionVideo = self.request.descriptions[indexPath.row]
-        let videoImage = self.request.imageList[indexPath.row]
+        let videoImageURL = ""
         let videoName = self.request.titles[indexPath.row]
         let videoChannel = self.request.channelTitles[indexPath.row]
         let videoViewController = VideoViewController()
         videoViewController.videoId = videoId
         videoViewController.descriptionVideo = descriptionVideo
-        videoViewController.videoImage = videoImage
+        videoViewController.videoImageURL = videoImageURL
         videoViewController.videoName = videoName
         videoViewController.videoChannel = videoChannel
         self.navigationController?.pushViewController(videoViewController, animated: true)

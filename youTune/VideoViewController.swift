@@ -16,7 +16,7 @@ class VideoViewController: UIViewController {
     @IBOutlet weak var starButton: UIButton!
     var descriptionVideo: String = ""
     var videoId: String = ""
-    var videoImage: UIImage!
+    var videoImageURL: String = ""
     var videoName: String = ""
     var videoChannel: String = ""
     var isFavorite: Bool = false
@@ -31,7 +31,7 @@ class VideoViewController: UIViewController {
         print(self.videoChannel)
         print(self.videoId)
         print(self.videoDescription)
-        print(self.videoImage)
+        print(self.videoImageURL)
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,7 +68,9 @@ class VideoViewController: UIViewController {
         let json = [
             "id": self.videoId.description,
             "title": self.videoName,
-            "channel": self.videoChannel
+            "channel": self.videoChannel,
+            "description": self.descriptionVideo,
+            "image": self.videoImageURL
             ] as [String : Any]
         
         videoArr.append(json)

@@ -12,13 +12,15 @@ class FavoritesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noFavLabel: UILabel!
-    
+    var videos: [[String:Any]] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadFavorites()
-        
+        self.videos = loadFavorites()
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: "listCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,45 +28,39 @@ class FavoritesViewController: UIViewController {
 
     }
 
-    func loadFavorites() {
+    func loadFavorites() -> [[String:Any]] {
         
-        print("start func")
         let basePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let filePath = basePath.appendingPathComponent("favorites.json")
         
         // print(filePath)
-        print("file path create")
         guard let data = try? Data(contentsOf: filePath),
             let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments),
             let arr = json as? [[String:Any]]
             else {
-                print("guard failed")
                 self.noFavLabel.isHidden = false
-                return
+                return []
         }
         
-        print("Before arr printed")
-        print(arr)
-        print("arr printed")
-        var videos: [String]
-        
+        return arr
         
     }
     
 
 }
-/*
+
 extension FavoritesViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.request.titles.count
+        return self.videos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath)
         if let listCell = cell as? ListTableViewCell {
-            listCell.titleList.text = self.request.titles[indexPath.row]
-            listCell.channelTitleList.text = self.request.channelTitles[indexPath.row]
-            listCell.imageList.image = self.request.imageList[indexPath.row]
+            listCell.titleList.text = self.videos[indexPath.row]["title"] as? String
+            listCell.channelTitleList.text = self.videos[indexPath.row]["channel"] as? String
+            //listCell.imageList.image = self.request.imageList[indexPath.row]
+            listCell.imageList.image = UIImage(named: "emptyStar")
         }
         return cell
     }
@@ -76,11 +72,19 @@ extension FavoritesViewController: UITableViewDataSource{
 
 extension FavoritesViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let videoId = self.request.id[indexPath.row]
-        let descriptionVideo = self.request.descriptions[indexPath.row]
+        print(indexPath.row)
+        print("count : \(self.videos.count)")
+        let videoId = self.videos[indexPath.row]["id"]! as? String
+        let descriptionVideo = self.videos[indexPath.row]["description"]! as? String
+        let videoImageURL = self.videos[indexPath.row]["image"]! as? String
+        let videoName = self.videos[indexPath.row]["title"]! as? String
+        let videoChannel = self.videos[indexPath.row]["channel"]! as? String
         let videoViewController = VideoViewController()
-        videoViewController.videoId = videoId
-        videoViewController.descriptionVideo = descriptionVideo
+        videoViewController.videoId = videoId!
+        videoViewController.descriptionVideo = descriptionVideo!
+        videoViewController.videoImageURL = videoImageURL!
+        videoViewController.videoName = videoName!
+        videoViewController.videoChannel = videoChannel!
         self.navigationController?.pushViewController(videoViewController, animated: true)
     }
-}*/
+}
