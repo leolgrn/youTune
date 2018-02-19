@@ -1,49 +1,60 @@
 //
-//  searchViewController.swift
+//  FavoritesViewController.swift
 //  youTune
 //
-//  Created by Léo LEGRON on 25/01/2018.
+//  Created by pierre piron on 19/02/2018.
 //  Copyright © 2018 Léo LEGRON. All rights reserved.
 //
 
 import UIKit
 
-class searchViewController: UIViewController {
+class FavoritesViewController: UIViewController {
     
-    @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var noFavLabel: UILabel!
     
     
-    
-    var request = ListInfo()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadFavorites()
         
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: "listCell")
-        
-        self.textField.delegate = self
-        self.textField.placeholder = "Search for an artist, a song, an album..."
-        
-        self.title = "Search"
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    @IBAction func searchButton() {
-        request = ListInfo();
-        self.request.getInformation(keyword: self.textField.text!)
-        while self.request.arraysAreFull == false {}
-        self.tableView.reloadData()
-    }
-    
-}
 
-extension searchViewController: UITableViewDataSource{
+    }
+
+    func loadFavorites() {
+        
+        print("start func")
+        let basePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let filePath = basePath.appendingPathComponent("favorites.json")
+        
+        // print(filePath)
+        print("file path create")
+        guard let data = try? Data(contentsOf: filePath),
+            let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments),
+            let arr = json as? [[String:Any]]
+            else {
+                print("guard failed")
+                self.noFavLabel.isHidden = false
+                return
+        }
+        
+        print("Before arr printed")
+        print(arr)
+        print("arr printed")
+        var videos: [String]
+        
+        
+    }
+    
+
+}
+/*
+extension FavoritesViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.request.titles.count
     }
@@ -63,23 +74,13 @@ extension searchViewController: UITableViewDataSource{
     }
 }
 
-extension searchViewController: UITableViewDelegate{
+extension FavoritesViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let videoId = self.request.id[indexPath.row]
         let descriptionVideo = self.request.descriptions[indexPath.row]
-        let videoImage = self.request.imageList[indexPath.row]
-        let videoName = self.request.titles[indexPath.row]
-        let videoChannel = self.request.channelTitles[indexPath.row]
         let videoViewController = VideoViewController()
         videoViewController.videoId = videoId
         videoViewController.descriptionVideo = descriptionVideo
-        videoViewController.videoImage = videoImage
-        videoViewController.videoName = videoName
-        videoViewController.videoChannel = videoChannel
         self.navigationController?.pushViewController(videoViewController, animated: true)
     }
-}
-
-extension searchViewController: UITextFieldDelegate{
-    
-}
+}*/

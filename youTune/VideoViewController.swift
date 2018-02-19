@@ -13,14 +13,25 @@ class VideoViewController: UIViewController {
 
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var videoDescription: UILabel!
+    @IBOutlet weak var starButton: UIButton!
     var descriptionVideo: String = ""
     var videoId: String = ""
+    var videoImage: UIImage!
+    var videoName: String = ""
+    var videoChannel: String = ""
+    var isFavorite: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getVideo(videoId: videoId)
         self.videoDescription.text = descriptionVideo
         self.webView.navigationDelegate = self
+        print("test")
+        print(self.videoName)
+        print(self.videoChannel)
+        print(self.videoId)
+        print(self.videoDescription)
+        print(self.videoImage)
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,6 +44,84 @@ class VideoViewController: UIViewController {
         webView.isOpaque = false
         webView.backgroundColor = UIColor.black
     }
+    
+    @IBAction func favButtonPressed(_ sender: Any) {
+
+        if (isFavorite) {
+            self.isFavorite = false
+            self.starButton.setImage(UIImage(named: "emptyStar"), for: .normal)
+            self.deleteFavorite()
+        }
+        else {
+            self.isFavorite = true
+            self.starButton.setImage(UIImage(named: "starFilled"), for: .normal)
+            self.addFavorite()
+        }
+        
+    }
+    
+    func addFavorite() {
+
+        
+        var videoArr: [[String: Any]] = loadFavorites()
+        
+        let json = [
+            "id": self.videoId.description,
+            "title": self.videoName,
+            "channel": self.videoChannel
+            ] as [String : Any]
+        
+        videoArr.append(json)
+        
+        saveFavorites(videoArr: videoArr)
+        
+    }
+
+    
+    func deleteFavorite() {
+        var videoArr: [[String:Any]] = loadFavorites()
+        var newArr: [[String:Any]] = []
+        videoArr.forEach { (item) in
+            if(item["id"]! as? String != self.videoId)
+            {
+                newArr.append(item)
+            }
+        }
+        
+        saveFavorites(videoArr: newArr)
+    }
+    
+    func loadFavorites() -> [[String:Any]]{
+        
+        let basePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let filePath = basePath.appendingPathComponent("favorites.json")
+        
+        guard let data = try? Data(contentsOf: filePath),
+            let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments),
+            let arr = json as? [[String:Any]]
+            else {
+                return []
+        }
+        return arr
+    }
+    
+    func saveFavorites(videoArr: [[String:Any]]) {
+        let basePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let filePath = basePath.appendingPathComponent("favorites.json")
+        
+        guard let data = try? JSONSerialization.data(withJSONObject: videoArr, options: .init(rawValue: 0)) else {
+            print("Failed to Serialize")
+            return
+        }
+        
+        do {
+            try data.write(to: filePath)
+            print("write successed")
+        } catch {
+            print("erreur write")
+        }
+    }
+    
 }
 
 extension VideoViewController: WKNavigationDelegate {
