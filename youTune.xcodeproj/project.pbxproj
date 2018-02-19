@@ -130,7 +130,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B32861CF200956C700611994 /* Build configuration list for PBXProject "YouTune" */;
+			buildConfigurationList = B32861CF200956C700611994 /* Build configuration list for PBXProject "youTune" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -333,7 +333,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B32861CF200956C700611994 /* Build configuration list for PBXProject "YouTune" */ = {
+		B32861CF200956C700611994 /* Build configuration list for PBXProject "youTune" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B32861E4200956C700611994 /* Debug */,

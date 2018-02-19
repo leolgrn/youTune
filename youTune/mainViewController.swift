@@ -15,8 +15,10 @@ class mainViewController: UIViewController{
     
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var errorMessage: UILabel!
+    @IBOutlet weak var tryAgainButton: UIButton!
     
-    let request = ListInfo()
+    var request = ListInfo()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,12 @@ class mainViewController: UIViewController{
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: "listCell")
         
+        self.errorMessage.textColor = UIColor.white
+        self.errorMessage.isHidden = true
+        self.tryAgainButton.setTitleColor(UIColor.white, for: [])
+        self.tryAgainButton.setTitleColor(UIColor.secondColor, for: UIControlState.highlighted)
+        self.tryAgainButton.isHidden = true
+        
         // Navigation Bar
         
         self.title = "Trends 🔥"
@@ -36,9 +44,24 @@ class mainViewController: UIViewController{
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Search 🔎", style: .plain, target: self, action: #selector(searchController))
         
         // Call + reloadData of tableView
-        self.request.getInformation(keyword: "")
-        while self.request.arraysAreFull == false {}
-        self.tableView.reloadData()
+        self.request.getInformation(keyword: "", callback: { ok in
+            if(ok){
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+            else{
+                DispatchQueue.main.async {
+                    self.tableView.isHidden = true
+                    self.errorMessage.isHidden = false
+                    self.tryAgainButton.isHidden = false
+                    self.navigationItem.leftBarButtonItem?.isEnabled = false
+                    self.navigationItem.rightBarButtonItem?.isEnabled = false
+                }
+            }
+        })
+        
+        while self.request.viewCanBeDisplayed == false {}
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,6 +80,32 @@ class mainViewController: UIViewController{
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.tintAdjustmentMode = .normal
         self.navigationController?.navigationBar.tintAdjustmentMode = .automatic
+    }
+    
+    @IBAction func tryAgain() {
+        request = ListInfo()
+        // Call + reloadData of tableView
+        self.request.getInformation(keyword: "", callback: { ok in
+            if(ok){
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.tableView.isHidden = false
+                    self.errorMessage.isHidden = true
+                    self.tryAgainButton.isHidden = true
+                    self.navigationItem.leftBarButtonItem?.isEnabled = true
+                    self.navigationItem.rightBarButtonItem?.isEnabled = true
+                }
+            }
+            else{
+                DispatchQueue.main.async {
+                    self.tableView.isHidden = true
+                    self.errorMessage.isHidden = false
+                    self.tryAgainButton.isHidden = false
+                    self.navigationItem.leftBarButtonItem?.isEnabled = false
+                    self.navigationItem.rightBarButtonItem?.isEnabled = false
+                }
+            }
+        })
     }
 }
 

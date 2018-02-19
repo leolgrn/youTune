@@ -15,9 +15,9 @@ class ListInfo: UITableViewController {
     var descriptions: [String] = []
     var channelTitles: [String] = []
     var id: [String] = []
-    var arraysAreFull = false
+    var viewCanBeDisplayed = false
     
-    public func getInformation(keyword: String) {
+    public func getInformation(keyword: String, callback: @escaping (Bool) -> ()) {
         
         // Formating the keyword for request
         
@@ -29,10 +29,14 @@ class ListInfo: UITableViewController {
         let url = URL(string: ytURL)
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
             guard let responseData = data else {
+                callback(false)
+                self.viewCanBeDisplayed = true
                 return
             }
             guard let json = try? JSONSerialization.jsonObject(with: responseData, options: .allowFragments),
             let dict = json as? [String:Any] else{
+                callback(false)
+                self.viewCanBeDisplayed = true
                 return
             }
             
@@ -68,7 +72,8 @@ class ListInfo: UITableViewController {
                     }
                 }
             })
-            self.arraysAreFull = true
+            callback(true)
+            self.viewCanBeDisplayed = true
         }
         task.resume()
     }

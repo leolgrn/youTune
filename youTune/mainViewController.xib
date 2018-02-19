@@ -12,7 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="mainViewController" customModule="youTune" customModuleProvider="target">
             <connections>
+                <outlet property="errorMessage" destination="eDt-Wr-3Sa" id="52E-2x-AGb"/>
                 <outlet property="tableView" destination="ZVb-vs-aqP" id="8IQ-Vj-B0e"/>
+                <outlet property="tryAgainButton" destination="EjC-YD-VmY" id="eGC-Do-3DC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,17 +27,33 @@
                     <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oups, network is unreachable." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDt-Wr-3Sa">
+                    <rect key="frame" x="56.666666666666657" y="394.33333333333331" width="262" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EjC-YD-VmY">
+                    <rect key="frame" x="156.33333333333334" y="428.33333333333331" width="63" height="30"/>
+                    <state key="normal" title="Try again"/>
+                    <connections>
+                        <action selector="tryAgain" destination="-1" eventType="touchUpInside" id="8ek-cr-ql6"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="eDt-Wr-3Sa" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="6GW-Ei-2PZ"/>
                 <constraint firstItem="ZVb-vs-aqP" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="EA9-GU-8u1"/>
                 <constraint firstItem="ZVb-vs-aqP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="SF2-Hl-c69"/>
                 <constraint firstItem="ZVb-vs-aqP" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="SqZ-pw-6Ff"/>
                 <constraint firstItem="ZVb-vs-aqP" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="Uc4-Ya-Qqu"/>
+                <constraint firstItem="EjC-YD-VmY" firstAttribute="top" secondItem="eDt-Wr-3Sa" secondAttribute="bottom" constant="10" id="X90-Hz-oNP"/>
                 <constraint firstItem="ZVb-vs-aqP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ZwT-oO-k7s"/>
                 <constraint firstItem="ZVb-vs-aqP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="blh-JT-5MD"/>
                 <constraint firstItem="ZVb-vs-aqP" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="coH-57-YRg"/>
                 <constraint firstItem="ZVb-vs-aqP" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="ekk-pP-v4H"/>
+                <constraint firstItem="eDt-Wr-3Sa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="en7-Z1-2US"/>
                 <constraint firstItem="ZVb-vs-aqP" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="ex2-6w-OHz"/>
                 <constraint firstItem="ZVb-vs-aqP" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="fXF-1g-e0L"/>
                 <constraint firstItem="ZVb-vs-aqP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="fZm-f7-lfY"/>
@@ -43,6 +61,7 @@
                 <constraint firstItem="ZVb-vs-aqP" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="iaZ-AR-v8j"/>
                 <constraint firstItem="ZVb-vs-aqP" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="k5r-Wq-uA3"/>
                 <constraint firstItem="ZVb-vs-aqP" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="lGH-Ne-n5E"/>
+                <constraint firstItem="EjC-YD-VmY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="rEJ-pv-Gz8"/>
                 <constraint firstItem="ZVb-vs-aqP" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="xSA-KA-46A"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

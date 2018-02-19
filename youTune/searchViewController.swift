@@ -47,11 +47,15 @@ class searchViewController: UIViewController {
 
     func search() {
         request = ListInfo()
-        self.request.getInformation(keyword: self.textField.text!)
-        while self.request.arraysAreFull == false {}
-        self.tableView.reloadData()
-        self.tableView.isHidden = false
-        self.textField.resignFirstResponder() // close keyboard
+        self.request.getInformation(keyword: self.textField.text!, callback: { ok in
+            if(ok){
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.tableView.isHidden = false
+                    self.textField.resignFirstResponder() // close keyboard
+                }
+            }
+        })        
     }
 }
 
