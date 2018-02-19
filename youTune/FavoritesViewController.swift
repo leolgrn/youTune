@@ -18,20 +18,35 @@ class FavoritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor.defaultColor
+        self.tableView.backgroundColor = UIColor.fourthColor
+        
+        self.noFavLabel.numberOfLines = 0
+        self.noFavLabel.text = "No favorite yet 💔 \n Come back later... 😢"
+        self.noFavLabel.textColor = UIColor.secondColor
+        
         self.navigationItem.title = "Favs ❤️"
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: "listCell")
+        self.tableView.tableFooterView = UIView(frame: .zero)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.videos = self.favorites.loadFavorites()
         self.tableView.reloadData()
+        
+        if self.videos.count == 0 {
+            self.noFavLabel.isHidden = false
+        } else {
+            self.noFavLabel.isHidden = true
+        }
     }
 
 }
@@ -60,15 +75,20 @@ extension FavoritesViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let videoId = self.videos[indexPath.row]["id"]! as? String
         let descriptionVideo = self.videos[indexPath.row]["description"]! as? String
-        //let videoImageURL = self.ima
         let videoName = self.videos[indexPath.row]["title"]! as? String
         let videoChannel = self.videos[indexPath.row]["channel"]! as? String
         let videoViewController = VideoViewController()
         videoViewController.videoId = videoId!
         videoViewController.descriptionVideo = descriptionVideo!
-        //videoViewController.videoImageURL = videoImageURL!
         videoViewController.videoName = videoName!
         videoViewController.videoChannel = videoChannel!
         self.navigationController?.pushViewController(videoViewController, animated: true)
+    }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.contentView.backgroundColor = UIColor.defaultColor
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.thirdColor
+        cell.selectedBackgroundView = bgColorView
     }
 }

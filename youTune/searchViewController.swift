@@ -31,7 +31,7 @@ class searchViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: "listCell")
-        
+        self.tableView.tableFooterView = UIView(frame: .zero)
         self.textField.delegate = self
         
         self.title = "Search 🔎"
