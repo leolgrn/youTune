@@ -13,8 +13,11 @@ class searchViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var request = ListInfo()
+    
+    var categorie = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,10 +47,25 @@ class searchViewController: UIViewController {
     @IBAction func searchButtonAction(_ sender: Any) {
         search()
     }
+    
+    @IBAction func categorieChanged(_ sender: Any) {
+        print(self.segmentedControl.selectedSegmentIndex)
+        switch self.segmentedControl.selectedSegmentIndex {
+        case 0:
+            self.categorie = 10
+        case 1:
+            self.categorie = 1
+        case 2:
+            self.categorie = 17
+        default:
+            self.categorie = 10
+        }
+    }
+    
 
     func search() {
         request = ListInfo()
-        self.request.getInformation(keyword: self.textField.text!, callback: { ok in
+        self.request.getInformation(keyword: self.textField.text!, categorie: self.categorie, callback: { ok in
             if(ok){
                 DispatchQueue.main.async {
                     self.tableView.reloadData()

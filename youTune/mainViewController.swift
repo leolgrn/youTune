@@ -44,7 +44,7 @@ class mainViewController: UIViewController{
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Search 🔎", style: .plain, target: self, action: #selector(searchController))
         
         // Call + reloadData of tableView
-        self.request.getInformation(keyword: "", callback: { ok in
+        self.request.getInformation(keyword: "", categorie: 10, callback: { ok in
             if(ok){
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -85,7 +85,7 @@ class mainViewController: UIViewController{
     @IBAction func tryAgain() {
         request = ListInfo()
         // Call + reloadData of tableView
-        self.request.getInformation(keyword: "", callback: { ok in
+        self.request.getInformation(keyword: "", categorie: 10, callback: { ok in
             if(ok){
                 DispatchQueue.main.async {
                     self.tableView.reloadData()

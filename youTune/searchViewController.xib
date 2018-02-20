@@ -14,6 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="searchViewController" customModule="youTune" customModuleProvider="target">
             <connections>
                 <outlet property="searchButton" destination="qrV-Hu-hVd" id="zdP-DU-zid"/>
+                <outlet property="segmentedControl" destination="FKl-N2-N0A" id="nu6-Yr-drg"/>
                 <outlet property="tableView" destination="Y1B-uK-TG2" id="ZDo-Ky-GlZ"/>
                 <outlet property="textField" destination="E0f-J5-R1O" id="l0E-t7-IcX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -39,25 +40,41 @@
                     </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Y1B-uK-TG2">
-                    <rect key="frame" x="0.0" y="146.66666666666669" width="375" height="631.33333333333326"/>
+                    <rect key="frame" x="0.0" y="174.66666666666669" width="375" height="603.33333333333326"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="FKl-N2-N0A">
+                    <rect key="frame" x="30" y="141.66666666666666" width="315" height="29"/>
+                    <segments>
+                        <segment title="Music"/>
+                        <segment title="Film"/>
+                        <segment title="Sport"/>
+                    </segments>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="categorieChanged:" destination="-1" eventType="valueChanged" id="4hg-Jf-Mkv"/>
+                    </connections>
+                </segmentedControl>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="E0f-J5-R1O" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="BUM-uQ-Tmt"/>
                 <constraint firstItem="qrV-Hu-hVd" firstAttribute="top" secondItem="E0f-J5-R1O" secondAttribute="bottom" constant="10" id="Bbg-vT-DQs"/>
+                <constraint firstItem="FKl-N2-N0A" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="FYy-wV-8h3"/>
                 <constraint firstItem="E0f-J5-R1O" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.05" id="Fvz-dQ-r5C"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qrV-Hu-hVd" secondAttribute="trailing" constant="10" id="GuU-xa-gNi"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="E0f-J5-R1O" secondAttribute="trailing" constant="10" id="Gyq-1n-kL4"/>
                 <constraint firstItem="qrV-Hu-hVd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="LCT-Ym-CGU"/>
+                <constraint firstItem="FKl-N2-N0A" firstAttribute="top" secondItem="qrV-Hu-hVd" secondAttribute="bottom" constant="5" id="TyH-MO-v2w"/>
+                <constraint firstItem="Y1B-uK-TG2" firstAttribute="top" secondItem="FKl-N2-N0A" secondAttribute="bottom" constant="5" id="aQ5-yy-DPn"/>
                 <constraint firstItem="E0f-J5-R1O" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="b3z-7j-ic0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FKl-N2-N0A" secondAttribute="trailing" constant="30" id="clq-wy-4Fj"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Y1B-uK-TG2" secondAttribute="bottom" id="k7L-3l-6bC"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Y1B-uK-TG2" secondAttribute="trailing" id="or6-rU-545"/>
-                <constraint firstItem="Y1B-uK-TG2" firstAttribute="top" secondItem="qrV-Hu-hVd" secondAttribute="bottom" constant="10" id="s1w-R8-zLZ"/>
                 <constraint firstItem="Y1B-uK-TG2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="uOz-9y-Zgw"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="33.5" y="54"/>
         </view>
         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Wge-R0-qKG">
             <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>

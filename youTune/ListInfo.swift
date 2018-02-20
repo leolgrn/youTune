@@ -17,7 +17,7 @@ class ListInfo: UITableViewController {
     var id: [String] = []
     var viewCanBeDisplayed = false
     
-    public func getInformation(keyword: String, callback: @escaping (Bool) -> ()) {
+    public func getInformation(keyword: String, categorie: Int, callback: @escaping (Bool) -> ()) {
         
         // Formating the keyword for request
         
@@ -25,7 +25,7 @@ class ListInfo: UITableViewController {
         
         // Call the youTube API
         
-        let ytURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyATUkqiZ6WQVbJdu1vqj-oM3aP7MgedOeU&maxResults=25&type=video&videoCategoryId=10&q=" + keywordFormatted
+        let ytURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyATUkqiZ6WQVbJdu1vqj-oM3aP7MgedOeU&maxResults=25&type=video&videoCategoryId=" + categorie.description + "&q=" + keywordFormatted
         let url = URL(string: ytURL)
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
             guard let responseData = data else {
