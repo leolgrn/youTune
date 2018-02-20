@@ -76,11 +76,13 @@ extension FavoritesViewController: UITableViewDelegate{
         let videoId = self.videos[indexPath.row]["id"]! as? String
         let descriptionVideo = self.videos[indexPath.row]["description"]! as? String
         let videoName = self.videos[indexPath.row]["title"]! as? String
+        let videoImage = self.favorites.loadImage(idVideo: self.videos[indexPath.row]["id"] as! String)
         let videoChannel = self.videos[indexPath.row]["channel"]! as? String
         let videoViewController = VideoViewController()
         videoViewController.videoId = videoId!
         videoViewController.descriptionVideo = descriptionVideo!
         videoViewController.videoName = videoName!
+        videoViewController.videoImage = videoImage
         videoViewController.videoChannel = videoChannel!
         self.navigationController?.pushViewController(videoViewController, animated: true)
     }

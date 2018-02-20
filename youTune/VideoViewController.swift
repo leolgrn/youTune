@@ -22,6 +22,7 @@ class VideoViewController: UIViewController {
     var videoName: String = ""
     var videoChannel: String = ""
     var isFavorite: Bool = false
+    var deleteImage: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,12 @@ class VideoViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if (self.deleteImage) {
+            self.favorites.deleteImage(idVideo: self.videoId)
+        }
     }
     
     func getVideo(videoId: String) {
@@ -85,6 +92,7 @@ class VideoViewController: UIViewController {
         videoArr.append(json)
         self.favorites.saveFavorites(videoArr: videoArr)
         self.favorites.saveImage(image: self.videoImage, idVideo: self.videoId)
+        self.deleteImage = false
     }
 
     
@@ -99,7 +107,7 @@ class VideoViewController: UIViewController {
         }
         
         self.favorites.saveFavorites(videoArr: newArr)
-        self.favorites.deleteImage(idVideo: self.videoId)
+        self.deleteImage = true
     }
     
 
